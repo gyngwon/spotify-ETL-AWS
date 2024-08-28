@@ -3,7 +3,7 @@ import boto3
 from datetime import datetime
 from io import StringIO
 import pandas as pd 
-
+ 
 def artist(data):
     artist_list = []
     for row in data['items']:
