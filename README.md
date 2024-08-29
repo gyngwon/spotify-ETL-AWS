@@ -10,12 +10,12 @@ This project aims to build a fully automated data pipeline that extracts data fr
 
 <img width="732" alt="architecture" src="https://github.com/user-attachments/assets/a449274d-a109-4173-8087-89e7afb8c9c2">
 
-- **S3 (Simple Storage Service):** Used to store raw and transformed data.
-- **Lambda:** Serverless compute service used to run Python code for data extraction and transformation.
-- **CloudWatch:** Monitors and logs AWS resources and sets alarms.
-- **EventBridge:** Schedules and triggers events to automate data extraction.
-- **Glue Data Catalog:** Manages metadata and acts as a central repository for storing and organizing data schemas.
-- **Athena:** Performs interactive queries on data stored in S3 using SQL.
+- **S3 (Simple Storage Service)**: Used to store both raw and transformed data.
+- **Lambda**: A serverless compute service that runs Python code for data extraction and transformation.
+- **CloudWatch**: Monitors and logs AWS resources, setting alarms for critical events.
+- **EventBridge**: Automates data extraction by scheduling and triggering events.
+- **Glue Data Catalog**: Manages metadata and organizes data schemas, enabling Athena to query the data stored in S3.
+- **Athena**: Executes interactive SQL queries on data stored in S3, using the metadata stored in the Glue Data Catalog.
 
 ## ETL Process Overview
 
