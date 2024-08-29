@@ -8,6 +8,9 @@ The objective of this project is to build a fully automated data pipeline that e
 
 ## Architecture Overview
 
+<img width="732" alt="architecture" src="https://github.com/user-attachments/assets/a449274d-a109-4173-8087-89e7afb8c9c2">
+
+
 The architecture of this project includes the following components:
 
 - **Search**
