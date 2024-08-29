@@ -4,21 +4,11 @@ This project involves developing an ETL (Extract, Transform, Load) pipeline usin
 
 ## Objective
 
-The objective of this project is to build a fully automated data pipeline that extracts data from the Spotify API, transforms it for analysis, and loads the transformed data into Amazon S3. The data is then queried using Amazon Athena, with AWS Glue managing cataloging and metadata.
+This project aims to build a fully automated data pipeline that extracts data from the Spotify API, transforms it for analysis, and loads the transformed data into Amazon S3. The data is then queried using Amazon Athena, with AWS Glue managing cataloging and metadata.
 
 ## Architecture Overview
 
 <img width="732" alt="architecture" src="https://github.com/user-attachments/assets/a449274d-a109-4173-8087-89e7afb8c9c2">
-
-
-The architecture of this project includes the following components:
-
-- **Search**
-- **Write**
-- **Sign Up**
-- **Sign In**
-
-Below is an overview of the tools and services used in the project:
 
 - **S3 (Simple Storage Service):** Used to store raw and transformed data.
 - **Lambda:** Serverless compute service used to run Python code for data extraction and transformation.
@@ -32,13 +22,13 @@ Below is an overview of the tools and services used in the project:
 ### 1. Extract
 - Data is extracted from the Spotify API using the Spotipy library.
 - The extraction code is deployed using AWS Lambda.
-- A trigger in EventBridge automates the data extraction every day at 4 PM UTC.
-- The extracted data is saved in the `top_200_global/raw_data/to_process` folder in the S3 bucket.
+- A trigger in EventBridge automates the data extraction every day at 9 AM and 10 PM GMT.
+- The extracted data is saved in the `discover_daily/raw_data/to_process` folder in the S3 bucket.
 
 ### 2. Transform
-- A trigger on S3 detects when new data is added to the `top_200_global/raw_data/to_process` folder, invoking the transformation code on Lambda.
+- A trigger on S3 detects when new data is added to the `discover_daily/raw_data/to_process` folder, invoking the transformation code on Lambda.
 - The transformation code cleans and prepares the data, creating separate files for albums, artists, and songs.
-- The transformed data is stored in the respective subfolders in `top_200_global/transformed_data`.
+- The transformed data is stored in the respective subfolders in `discover_daily/transformed_data`.
 
 ### 3. Load
 - AWS Glue's crawler infers the schema when new data arrives in the transformed data folders.
@@ -56,4 +46,4 @@ Each dataset is stored in separate folders in the S3 bucket and is accessible fo
 
 ## Conclusion
 
-This project serves as a comprehensive introduction to building ETL pipelines using Python and AWS. By working with the Spotify API and core AWS services, you gain hands-on experience in setting up a scalable and automated data processing system.
+This project is a comprehensive introduction to building ETL pipelines using Python and AWS. By working with the Spotify API and core AWS services, you gain hands-on experience in setting up a scalable and automated data processing system.
